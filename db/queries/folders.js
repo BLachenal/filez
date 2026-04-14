@@ -8,3 +8,7 @@ export async function createFolder({name}){
         const {rows: folders} = await db.query(sql, [name]);
         return folders[0];
 }
+
+export async function getFolders(){
+
+}

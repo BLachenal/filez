@@ -8,3 +8,8 @@ export async function createFile({name, size, folderId}){
         const {rows: file} = await db.query(sql, [name, size, folderId]);
         return file[0];
 }
+
+export async function getFiles(){
+
+}
+
