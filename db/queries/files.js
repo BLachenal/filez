@@ -10,6 +10,13 @@ export async function createFile({name, size, folderId}){
 }
 
 export async function getFiles(){
-
+    const sql = `
+    SELECT files.*, 
+        folders.name AS folder_name 
+    FROM files 
+    JOIN folders ON files.folder_id = folders.id;
+    `;
+    const files = await db.query(sql);
+    return files;
 }
 
