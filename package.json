@@ -7,9 +7,9 @@
   "scripts": {
     "start": "node --env-file=.env server.js",
     "dev": "node --watch --env-file=.env server.js",
-    "test": "vitest",
+    "test": "vitest --bail=1",
     "test:database": "vitest database",
-    "test:server": "vitest server",
+    "test:server": "vitest server --bail=1",
     "db:schema": "psql -d filez -f db/schema.sql",
     "db:seed": "node --env-file=.env db/seed.js",
     "db:reset": "npm run db:schema && npm run db:seed"

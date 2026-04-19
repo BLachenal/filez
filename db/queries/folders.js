@@ -13,11 +13,11 @@ export async function getFolders(){
     const sql = `
     SELECT * FROM folders
     `;
-    const folders = await db.query(sql);
-    return folders;
+    const { rows } = await db.query(sql);
+    return rows;
 }
 
-export async function getFolderById(){
+export async function getFolderById(id){
     const sql = `
         SELECT 
         folders.*, 
@@ -31,4 +31,6 @@ export async function getFolderById(){
         WHERE folders.id = $1
         GROUP BY folders.id;
     `;
+    const { rows } = await db.query(sql, [id]);
+    return rows[0];
 }

@@ -16,7 +16,7 @@ export async function getFiles(){
     FROM files 
     JOIN folders ON files.folder_id = folders.id;
     `;
-    const files = await db.query(sql);
-    return files;
+    const { rows } = await db.query(sql);
+    return rows;
 }
 
